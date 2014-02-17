@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>query-mouse-coordinate</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://localhost:8001/css/lib/normalize-2.1.2.css">
+<style media="screen" type="text/css">
+
+</style>
+    </head>
+    <body>
+
+<div id="info"  style="position: absolute; top:0;    left:0;  width:200px; height: 200px; border:1px red solid;"></div> 
+<div id="info2" style="position: absolute; bottom:0; left:0;  width:200px; height: 200px; border:1px green solid;"></div>
+<div id="info3" style="position: absolute; top:0;    right:0; width:200px; height: 200px; border:1px blue solid;"></div>   
+<div id="info4" style="position: absolute; bottom:0; right:0; width:200px; height: 200px; border:1px yellow solid;">document</div>
+<script src="http://localhost:8001/js/lib/jquery-1.11.0.js"></script>
+<script>
+
+    $(function() {
+
+        $("html").mousemove( function(e){
+        $('#info').text(e.pageX + ', ' + e.pageY);
+        } );
+
+        $('body').mousemove( function(e){   // note the expected behaviour
+        $('#info2').text(e.pageX + ', ' + e.pageY);
+        } );
+
+        $('#info3').mousemove( function(e){
+        $('#info3').text(e.pageX + ', ' + e.pageY);
+        } );
+        
+        $(document).mousemove( function(e){
+        $('#info4').text(e.pageX + ', ' + e.pageY);
+        } );
+        
+    });
+
+</script>
+</body>
+</html>
